@@ -3,6 +3,8 @@ package com.mashko.andrei.moneytracker;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +20,7 @@ import java.util.List;
 
 public class TransactionsFragment extends Fragment {
 
-    ListView listView;
+    RecyclerView recyclerView;
     TransactionAdapter transactionAdapter;
     List<Transactions> data = new ArrayList<>();
 
@@ -29,15 +31,30 @@ public class TransactionsFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_transactions, container, false);
 
         initData(data);
-        transactionAdapter = new TransactionAdapter(getActivity(), data);
+        transactionAdapter = new TransactionAdapter(data);
 
-        listView = (ListView) view.findViewById(R.id.listview);
-        listView.setAdapter(transactionAdapter);
+        recyclerView = (RecyclerView) view.findViewById(R.id.trnsactions_list);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        recyclerView.setAdapter(transactionAdapter);
 
         return view;
     }
 
     private void initData(List<Transactions> data){
+        data.add(new Transactions("Phone", new Date(), 25));
+        data.add(new Transactions("Phone2", new Date(), 35));
+        data.add(new Transactions("Phone3", new Date(), 45));
+        data.add(new Transactions("Phone4", new Date(), 55));
+        data.add(new Transactions("Phone5", new Date(), 65));
+        data.add(new Transactions("Phone", new Date(), 25));
+        data.add(new Transactions("Phone2", new Date(), 35));
+        data.add(new Transactions("Phone3", new Date(), 45));
+        data.add(new Transactions("Phone4", new Date(), 55));
+        data.add(new Transactions("Phone5", new Date(), 65));
         data.add(new Transactions("Phone", new Date(), 25));
         data.add(new Transactions("Phone2", new Date(), 35));
         data.add(new Transactions("Phone3", new Date(), 45));
