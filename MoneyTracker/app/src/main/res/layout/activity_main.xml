@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mashko.andrei.moneytracker.MainActivity"
-    style="@style/Container">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Container"
+    android:orientation="vertical">
 
-    <fragment
-        class="com.mashko.andrei.moneytracker.TransactionsFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/transactions_fragment"
-        />
+   <include layout="@layout/toolbar"/>
 
-</android.support.constraint.ConstraintLayout>
+   <android.support.v4.widget.DrawerLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/drawer_layout"
+       android:background="@android:color/transparent">
+
+      <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/content_frame"
+          android:background="@color/backgroung" />
+
+      <ListView
+          android:layout_width="150dp"
+          android:layout_height="match_parent"
+          android:id="@+id/left_drawer"
+          android:layout_gravity = "start"
+          android:choiceMode="singleChoice"
+          android:background="@android:color/white"
+          android:divider="@android:color/black"/>
+
+   </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout >

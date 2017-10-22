@@ -17,16 +17,18 @@ import java.util.List;
  */
 
 public class TransactionsFragment extends Fragment {
-    private ListView listView;
-    private TransactionAdapter transactionAdapter;
-    private List<Transactions> data;
+
+    ListView listView;
+    TransactionAdapter transactionAdapter;
+    List<Transactions> data = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_transactions, container);
 
-        initData();
+        final View view = inflater.inflate(R.layout.fragment_transactions, container, false);
+
+        initData(data);
         transactionAdapter = new TransactionAdapter(getActivity(), data);
 
         listView = (ListView) view.findViewById(R.id.listview);
@@ -35,12 +37,13 @@ public class TransactionsFragment extends Fragment {
         return view;
     }
 
-    private void initData(){
-        data = new ArrayList<>();
+    private void initData(List<Transactions> data){
         data.add(new Transactions("Phone", new Date(), 25));
         data.add(new Transactions("Phone2", new Date(), 35));
         data.add(new Transactions("Phone3", new Date(), 45));
         data.add(new Transactions("Phone4", new Date(), 55));
         data.add(new Transactions("Phone5", new Date(), 65));
     }
+
+
 }
