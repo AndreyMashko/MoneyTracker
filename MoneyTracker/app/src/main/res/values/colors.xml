@@ -2,7 +2,11 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#1A9C56</color>
+    <color name="colorAccentFab">#FF4081</color>
     <color name="green">#1A9C56</color>
     <color name="backgroung">#E7E7E7</color>
+    <color name="accentPress">#d72b65</color>
+    <color name="colorRiple">#e2477c</color>
+    <color name="colorText">#FF898284</color>
 </resources>

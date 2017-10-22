@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MoneyTracker</string>
     <string name="transactions">Траты</string>
+    <string name="summa">сумма</string>
+    <string name="notice">Примечание</string>
+    <string name="category">Категория</string>
+    <string name="data">Дата</string>
+    <string name="name_transaction">название транзакции</string>
+    <string name="add_transactions">Добавить трату</string>
 </resources>
