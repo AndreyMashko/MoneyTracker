@@ -5,11 +5,12 @@
     tools:context="com.mashko.andrei.moneytracker.MainActivity"
     style="@style/Container">
 
-    <fragment
-        class="com.mashko.andrei.moneytracker.TransactionsFragment"
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/transactions_fragment"
-        />
+        android:layout_height="match_parent"
+        android:id="@+id/listview"
+        >
+
+    </ListView>
 
 </android.support.constraint.ConstraintLayout>
