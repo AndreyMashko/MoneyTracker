@@ -104,5 +104,15 @@ public class CategorysFragment extends Fragment {
         return new Select().from(Category.class).where("name_cat = ?", name).executeSingle();
     }
 
+    public static Double getSumResCategory(Category category){
+        List<Transactions> transactionses = new Select().from(Transactions.class).where("category = ?", category.getId()).execute();
+        Double result = 0.0;
+        for(Transactions tr : transactionses){
+            result+=Double.parseDouble(tr.getSum());
+        }
+
+        return result;
+    }
+
 
 }

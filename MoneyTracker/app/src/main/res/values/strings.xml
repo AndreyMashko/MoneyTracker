@@ -10,4 +10,5 @@
     <string name="add_category">Добавить категорию</string>
     <string name="food">еда</string>
     <string name="categorys">Категории</string>
+    <string name="statistics">Статистика</string>
 </resources>

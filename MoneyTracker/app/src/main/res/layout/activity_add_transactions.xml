@@ -32,20 +32,19 @@
             android:text="@string/summa"/>
 
         <EditText
+            android:id="@+id/et_summa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@color/color_input_text"
-            android:layout_row="0"
             android:layout_column="1"
-            android:inputType="number"
+            android:layout_row="0"
             android:ems="10"
             android:gravity="fill"
-            android:id="@+id/et_summa"
             android:hint="300"
-            android:textSize="15dp"
+            android:inputType="number|numberDecimal"
             android:paddingBottom="15dp"
-            />
+            android:textColor="@color/color_input_text"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"

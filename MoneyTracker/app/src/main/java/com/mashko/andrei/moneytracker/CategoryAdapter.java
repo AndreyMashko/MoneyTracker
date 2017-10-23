@@ -50,4 +50,6 @@ public class CategoryAdapter extends  RecyclerView.Adapter<CategoryAdapter.CardV
 
         }
     }
+
+
 }
