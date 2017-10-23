@@ -70,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.content_frame, transactionsFragment);
                     transaction.commit();
                     break;
+                case 1:
+                    leftDrawer.setItemChecked(position, true);
+                    drawerLayout.closeDrawer(leftDrawer);
+                    setTitle(getString(R.string.categorys));
+                    CategorysFragment categorysFragment  = new CategorysFragment();
+                    FragmentTransaction transactionC = getFragmentManager().beginTransaction();
+                    transactionC.replace(R.id.content_frame, categorysFragment);
+                    transactionC.commit();
+                    break;
             }
         }
     }

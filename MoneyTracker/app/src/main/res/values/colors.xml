@@ -9,5 +9,6 @@
     <color name="accentPress">#d72b65</color>
     <color name="colorRiple">#e2477c</color>
     <color name="colorText">#FF000000</color>
-    <color name="color_input_text">#FF000000</color>>
+    <color name="color_input_text">#FF000000</color>
+    <color name="back_add_tr" >#FFFCF6F6</color>
 </resources>

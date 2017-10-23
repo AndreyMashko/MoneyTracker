@@ -18,7 +18,7 @@
         android:columnCount="2"
         android:rowCount = "5"
         android:padding="10dp"
-        android:background="@color/backgroung">
+        android:background="@color/back_add_tr">
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,6 +27,7 @@
             android:layout_column="0"
             android:gravity="fill"
             android:textColor="@color/colorText"
+            android:textSize="@dimen/text_size_add"
             android:layout_marginRight="20dp"
             android:text="@string/summa"/>
 
@@ -42,6 +43,7 @@
             android:gravity="fill"
             android:id="@+id/et_summa"
             android:hint="300"
+            android:textSize="15dp"
             android:paddingBottom="15dp"
             />
 
@@ -52,6 +54,8 @@
             android:layout_column="0"
             android:gravity="fill"
             android:textColor="@color/colorText"
+            android:textSize="@dimen/text_size_add"
+
             android:layout_marginRight="20dp"
             android:text="@string/notice"/>
 
@@ -62,6 +66,7 @@
             android:layout_column="1"
             android:textColorHint="@color/colorText"
             android:textColor="@color/color_input_text"
+            android:textSize="15dp"
             android:ems="10"
             android:gravity="fill"
             android:id="@+id/et_notice"
@@ -76,6 +81,7 @@
             android:layout_column="0"
             android:gravity="fill"
             android:textColor="@color/colorText"
+            android:textSize="@dimen/text_size_add"
             android:layout_marginRight="20dp"
             android:text="@string/category"
             android:paddingBottom="15dp"/>
@@ -88,6 +94,7 @@
             android:layout_column="0"
             android:gravity="fill"
             android:textColor="@color/colorText"
+            android:textSize="@dimen/text_size_add"
             android:layout_marginRight="20dp"
             android:text="@string/data"
             android:paddingBottom="15dp"/>
