@@ -18,6 +18,8 @@ public class Transactions extends Model {
     private String sum;
     @Column(name = "date_tr")
     private Date date;
+    @Column(name = "category")
+    private Category category;
 
     public Transactions(){
         date = new Date();
@@ -42,7 +44,11 @@ public class Transactions extends Model {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

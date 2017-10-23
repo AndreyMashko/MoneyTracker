@@ -100,4 +100,9 @@ public class CategorysFragment extends Fragment {
         return new Select().from(Category.class).execute();
     }
 
+    public static Category getCategory(String name){
+        return new Select().from(Category.class).where("name_cat = ?", name).executeSingle();
+    }
+
+
 }

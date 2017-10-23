@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         leftDrawer = (ListView) findViewById(R.id.left_drawer);
 
-        String[] navigationData = new String[]{"Траты", "Категории", "Статистика"};
+        String[] navigationData = new String[]{"Траты", "Категории", "Статистика", "Выход"};
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.list_item_menu, navigationData);
         leftDrawer.setAdapter(arrayAdapter);
         leftDrawer.setOnItemClickListener(new DrawerItemOnClickListener());
@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
                     transactionC.replace(R.id.content_frame, categorysFragment);
                     transactionC.commit();
                     break;
+                case 2: break;
+                case 3: finish();
             }
         }
     }

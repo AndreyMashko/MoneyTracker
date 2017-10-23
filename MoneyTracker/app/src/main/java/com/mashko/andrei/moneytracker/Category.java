@@ -9,7 +9,7 @@ import com.activeandroid.annotation.Table;
  */
 @Table(name = "Categorys")
 public class Category extends Model{
-    @Column(name = "name_cat")
+    @Column(name = "name_cat", unique = true, index = true)
     private String name;
 
     public String getName() {

@@ -9,9 +9,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.activeandroid.query.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by АДМИН on 22.10.2017.
@@ -22,6 +29,7 @@ public class AddTransactionsActivity extends ActionBarActivity {
     private EditText title;
     private EditText sum;
     private Button bt;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +40,13 @@ public class AddTransactionsActivity extends ActionBarActivity {
         title = (EditText) findViewById(R.id.et_notice);
         sum = (EditText) findViewById(R.id.et_summa);
         bt = (Button) findViewById(R.id.bt_add_trans);
+        spinner = (Spinner) findViewById(R.id.spinner_catigories);
+        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, getCategoriesName());
+        // Определяем разметку для использования при выборе элемента
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        // Применяем адаптер к элементу spinner
+        spinner.setAdapter(adapter);
 
 
         if(toolbar != null)
@@ -45,10 +60,12 @@ public class AddTransactionsActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Transactions transactions =  new Transactions();
+                Category categr = CategorysFragment.getCategory((String)spinner.getSelectedItem());
+                transactions.setCategory(categr);
                 transactions.setTitle(title.getText().toString());
                 transactions.setSum(sum.getText().toString());
                 transactions.save();
-                Toast.makeText(getBaseContext(), "Insert successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), categr.getName()+"game", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -67,4 +84,14 @@ public class AddTransactionsActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public static String[] getCategoriesName() {
+        List<Category> categoryList = CategorysFragment.getAllCategorys();
+        String[] categoriesName = new String[categoryList.size()];
+        for(int i = 0; i<categoriesName.length; i++)
+            categoriesName[i] = categoryList.get(i).getName();
+
+        return categoriesName;
+    }
+
 }

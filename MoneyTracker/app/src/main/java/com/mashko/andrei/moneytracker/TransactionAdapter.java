@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import static android.R.attr.resource;
@@ -23,8 +25,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
     List<Transactions> transactionses;
 
+
     public TransactionAdapter(List<Transactions> transactions) {
         this.transactionses = transactions;
+
     }
 
 
@@ -37,9 +41,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @Override
     public void onBindViewHolder(CardViewHolder holder, int position) {
         Transactions transactions = transactionses.get(position);
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         holder.title.setText(transactions.getTitle());
-        //holder.date.setText(transactions.getDate().toString());
+        holder.date.setText(formatter.format(transactions.getDate()));
         holder.sum.setText(transactions.getSum());
 
     }
