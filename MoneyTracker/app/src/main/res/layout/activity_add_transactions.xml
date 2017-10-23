@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
-
     <include layout="@layout/toolbar"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="9dp">
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount = "4"
+        android:rowCount = "5"
+        android:padding="10dp"
         android:background="@color/backgroung">
 
         <TextView
@@ -27,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorText"
+            android:textColor="@color/color_input_text"
             android:layout_row="0"
             android:layout_column="1"
             android:inputType="number"
@@ -34,6 +42,7 @@
             android:gravity="fill"
             android:id="@+id/et_summa"
             android:hint="300"
+            android:paddingBottom="15dp"
             />
 
         <TextView
@@ -52,10 +61,12 @@
             android:layout_row="1"
             android:layout_column="1"
             android:textColorHint="@color/colorText"
+            android:textColor="@color/color_input_text"
             android:ems="10"
             android:gravity="fill"
             android:id="@+id/et_notice"
             android:hint="@string/name_transaction"
+            android:paddingBottom="15dp"
             />
 
         <TextView
@@ -66,7 +77,9 @@
             android:gravity="fill"
             android:textColor="@color/colorText"
             android:layout_marginRight="20dp"
-            android:text="@string/category"/>
+            android:text="@string/category"
+            android:paddingBottom="15dp"/>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -76,7 +89,18 @@
             android:gravity="fill"
             android:textColor="@color/colorText"
             android:layout_marginRight="20dp"
-            android:text="@string/data"/>
-    </GridLayout>
+            android:text="@string/data"
+            android:paddingBottom="15dp"/>
 
+            <Button
+                android:layout_row="4"
+                android:layout_columnSpan="2"
+                android:layout_gravity="center"
+                android:layout_width="200dp"
+                android:text="@string/add_transactions"
+                android:id="@+id/bt_add_trans"
+                android:background="@color/green"
+                android:layout_marginBottom="10dp"/>
+    </GridLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

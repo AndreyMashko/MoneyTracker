@@ -5,8 +5,9 @@
     <color name="colorAccent">#1A9C56</color>
     <color name="colorAccentFab">#FF4081</color>
     <color name="green">#1A9C56</color>
-    <color name="backgroung">#E7E7E7</color>
+    <color name="backgroung">#ffffff</color>
     <color name="accentPress">#d72b65</color>
     <color name="colorRiple">#e2477c</color>
-    <color name="colorText">#FF898284</color>
+    <color name="colorText">#FF000000</color>
+    <color name="color_input_text">#FF000000</color>>
 </resources>
