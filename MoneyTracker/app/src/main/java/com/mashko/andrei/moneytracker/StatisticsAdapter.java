@@ -1,10 +1,12 @@
 package com.mashko.andrei.moneytracker;
 
+import android.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -45,12 +47,15 @@ public class StatisticsAdapter extends RecyclerView.Adapter<StatisticsAdapter.Ca
         protected TextView categoryName;
         protected TextView sumResult;
 
-        public CardViewHolder(View itemView) {
+        public CardViewHolder(final View itemView) {
             super(itemView);
 
             categoryName = (TextView) itemView.findViewById(R.id.category_name);
             sumResult = (TextView) itemView.findViewById(R.id.sum_res);
 
+
         }
     }
+
+
 }

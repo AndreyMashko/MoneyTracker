@@ -60,12 +60,20 @@ public class AddTransactionsActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Transactions transactions =  new Transactions();
+                String trTitle = title.getText().toString().trim();
+                String trSum = sum.getText().toString().trim();
                 Category categr = CategorysFragment.getCategory((String)spinner.getSelectedItem());
-                transactions.setCategory(categr);
-                transactions.setTitle(title.getText().toString());
-                transactions.setSum(sum.getText().toString());
-                transactions.save();
-                Toast.makeText(getBaseContext(), categr.getName()+"game", Toast.LENGTH_SHORT).show();
+
+                if(trTitle.length() != 0 &&
+                        trSum.length() != 0 &&
+                        categr != null){
+                    transactions.setCategory(categr);
+                    transactions.setTitle(trTitle);
+                    transactions.setSum(trSum);
+                    transactions.save();
+                    Toast.makeText(getBaseContext(), "Input success", Toast.LENGTH_SHORT).show();
+                }else
+                    Toast.makeText(getBaseContext(), "Input error!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -79,7 +87,7 @@ public class AddTransactionsActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);

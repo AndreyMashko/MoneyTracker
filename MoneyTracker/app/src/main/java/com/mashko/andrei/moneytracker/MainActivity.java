@@ -1,5 +1,6 @@
 package com.mashko.andrei.moneytracker;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
@@ -42,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.setDrawerListener(drawerToggle);
+
+        TransactionsFragment transactionsFragment = new TransactionsFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.content_frame, transactionsFragment);
+        transaction.commit();
 
     }
 
@@ -92,4 +98,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 }

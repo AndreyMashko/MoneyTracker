@@ -71,21 +71,24 @@ public class CategorysFragment extends Fragment {
                     public void onClick(View v) {
                         Category category = new Category();
 
-                        String str = title.getText().toString();
+                        String str = title.getText().toString().trim();
 
-                        category.setName(str);
+                        if(str.length() != 0) {
+                            category.setName(str);
 
+                            category.save();
 
-                        category.save();
-
-                        Toast.makeText(getActivity(), category.getName(), Toast.LENGTH_SHORT).show();
-                        dialog.hide();
-                        Fragment frg = null;
-                        frg = getActivity().getFragmentManager().findFragmentById(R.id.content_frame);
-                        final FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.detach(frg);
-                        ft.attach(frg);
-                        ft.commit();
+                            Toast.makeText(getActivity(), "Input catgory" + category.getName() + "success", Toast.LENGTH_SHORT).show();
+                            dialog.hide();
+                            Fragment frg = null;
+                            frg = getActivity().getFragmentManager().findFragmentById(R.id.content_frame);
+                            final FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.detach(frg);
+                            ft.attach(frg);
+                            ft.commit();
+                        }else {
+                            Toast.makeText(getActivity(), "Input category error!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
                 dialog.show();
@@ -105,13 +108,17 @@ public class CategorysFragment extends Fragment {
     }
 
     public static Double getSumResCategory(Category category){
-        List<Transactions> transactionses = new Select().from(Transactions.class).where("category = ?", category.getId()).execute();
+        List<Transactions> transactionses = getTransactionsCategory(category);
         Double result = 0.0;
         for(Transactions tr : transactionses){
             result+=Double.parseDouble(tr.getSum());
         }
 
         return result;
+    }
+
+    public static List<Transactions> getTransactionsCategory(Category category){
+        return new Select().from(Transactions.class).where("category = ?", category.getId()).execute();
     }
 
 
